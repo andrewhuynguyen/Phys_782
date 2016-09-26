@@ -18,8 +18,8 @@ except ImportError:
 
 from os import path
 setup(name='Phys_782',
-      version='0.0.1',
-      description='Real-time serial port plotter/logger.',
+      version='0.0.2',
+      description='1D QM basis solver.',
       long_description= "" if not path.isfile("README.md") else read_md('README.md'),
       author='Andrew H Nguyen',
       author_email='andrewhuynguyen10@gmail.com',
@@ -33,8 +33,8 @@ setup(name='Phys_782',
           "numpy",
           "matplotlib",
       ],
-      packages=['src/basis'],
-      scripts=['src/basis/basis_solve.py'],
+      packages=['basis'],
+      scripts=['basis/basis_solve.py'],
       package_data={'basis': []},
       include_package_data=True,
       classifiers=[
