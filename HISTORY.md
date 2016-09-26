@@ -6,8 +6,7 @@
 - Added potential for bump down, sho and kp
 - Added unit tests
 - Run unit tests
-- setup Travis-CI
-- Add coverall
+- setup Travis-CI and coverall
 
 ## Revision 0.0.1
 

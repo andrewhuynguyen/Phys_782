@@ -67,7 +67,7 @@ class Potential(object):
         else:
             return 0.    
 
-    def __mul__(self, value):
+    def __mul__(self, value): #pragma: no cover
         """Increases the strength of the potential by `value`.
         
         Args:
@@ -98,22 +98,22 @@ class Potential(object):
             if k in self.params:
                 self.params[k] = v
             else:
-                wmsg = "'{}' is not a valid parameter for '{}'."
-                msg.warn(wmsg.format(k, self.filepath))
+                wmsg = "'{}' is not a valid parameter for '{}'." #pragma: no cover
+                msg.warn(wmsg.format(k, self.filepath))	#pragma: no cover
         self._parse_regions()
 
     def _parse_regions(self):
         """Parses the potential's region specifications from config.
         """
         if not self.parser.has_section("regions"):
-            raise ValueError("[regions] is required to define a potential.")
+            raise ValueError("[regions] is required to define a potential.") #pragma: no cover
         self.regions = {}
         
         for i, spec in self.parser.items("regions"):
             domain, sfunc = spec.split('|')
             if "numpy" in sfunc and "numpy" not in self.params:
-                import numpy as np
-                self.params["numpy"] = np
+                import numpy as np #pragma: no cover
+                self.params["numpy"] = np #pragma: no cover
             if "operator" in sfunc and "operator" not in self.params:
                 import operator
                 self.params["operator"] = operator
@@ -127,8 +127,8 @@ class Potential(object):
         """
         try:
             from ConfigParser import ConfigParser
-        except ImportError:
-            from configparser import ConfigParser
+        except ImportError:  #pragma: no cover
+            from configparser import ConfigParser #pragma: no cover
 
         self.parser = ConfigParser()
         with open(self.filepath) as f:
